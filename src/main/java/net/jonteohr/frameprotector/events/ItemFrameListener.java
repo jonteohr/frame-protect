@@ -65,6 +65,10 @@ public class ItemFrameListener implements Listener {
 		if(owner.equalsIgnoreCase(player.getName()))
 			return;
 
+		// Make sure we don't have override permissions, if we do then skip
+		if(player.hasPermission("frameprotector.override"))
+			return;
+
 		e.setCancelled(true);
 		player.sendMessage(Main.prefix + ChatColor.RED + "This Item Frame is locked, it's owned by: " + ChatColor.GOLD + owner);
 	}
@@ -92,6 +96,10 @@ public class ItemFrameListener implements Listener {
 
 		// If it's the owner, then ignore.
 		if(owner.equalsIgnoreCase(player.getName()))
+			return;
+
+		// Make sure we don't have override permissions, if we do then skip
+		if(player.hasPermission("frameprotector.override"))
 			return;
 
 		e.setCancelled(true);
